@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sceneplan model map</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; font-family: "Segoe UI", sans-serif; background: var(--bg); color: var(--ink); }
+    header, main { width: min(1100px, calc(100% - 2rem)); margin: 0 auto; }
+    header { padding: 1.2rem 0; display: flex; flex-wrap: wrap; gap: 0.8rem; align-items: end; justify-content: space-between; }
+    h1 { font-size: 1.6rem; margin: 0; }
+    h2 { font-size: 1.05rem; margin: 0 0 0.5rem; }
+    p { line-height: 1.45; }
+    .controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    select, button { font: inherit; background: var(--panel); color: var(--ink); border: 1px solid var(--line); padding: 0.35rem 0.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0.8rem; }
+    article, .flow { background: var(--panel); border: 1px solid var(--line); padding: 0.9rem; }
+    ol { margin: 0.3rem 0 0; padding-left: 1.1rem; }
+    code { font-family: ui-monospace, monospace; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { text-align: left; vertical-align: top; border-bottom: 1px solid var(--line); padding: 0.35rem; }
+    [data-theme="bento"] { --bg: #f4f1ea; --panel: #fff; --ink: #1c1915; --line: #d9d3c7; --accent: #0f6e56; }
+    [data-theme="bento"][data-mode="dark"] { --bg: #171512; --panel: #24211c; --ink: #f4f1ea; --line: #3a342c; --accent: #8fd9c2; }
+    [data-theme="cosmic"] { --bg: #0b0c10; --panel: #1f2833; --ink: #c5c6c7; --line: #45a29e; --accent: #66fcf1; }
+    [data-theme="cosmic"][data-mode="light"] { --bg: #e7fffb; --panel: #ffffff; --ink: #10211f; --line: #8fd9d0; --accent: #0b6e68; }
+    [data-theme="swiss"] { --bg: #fff; --panel: #fff; --ink: #111; --line: #111; --accent: #c00; }
+    [data-theme="swiss"][data-mode="dark"] { --bg: #111; --panel: #1a1a1a; --ink: #f5f5f5; --line: #f5f5f5; --accent: #ff4d4d; }
+    [data-theme="aqua"] { --bg: #e8fbff; --panel: #ffffff; --ink: #12323a; --line: #9ad7e5; --accent: #007ea7; }
+    [data-theme="aqua"][data-mode="dark"] { --bg: #06242c; --panel: #0c3642; --ink: #d7f6ff; --line: #1d6f86; --accent: #7fe7ff; }
+    [data-theme="brutal"] { --bg: #fff4cc; --panel: #fff; --ink: #111; --line: #111; --accent: #ff2d55; }
+    [data-theme="brutal"][data-mode="dark"] { --bg: #1a1020; --panel: #2a1633; --ink: #ffe566; --line: #ffe566; --accent: #ff5c8a; }
+    [data-theme="steel"] { --bg: #d9dde3; --panel: #eef1f4; --ink: #1b242c; --line: #6d7b88; --accent: #8a3b12; }
+    [data-theme="steel"][data-mode="dark"] { --bg: #12171c; --panel: #1c242c; --ink: #d5dde6; --line: #6a7784; --accent: #e7b089; }
+    [data-theme="parchment"] { --bg: #f3e6c8; --panel: #fff8e8; --ink: #3a2a16; --line: #c3a56a; --accent: #6b3e16; }
+    [data-theme="parchment"][data-mode="dark"] { --bg: #2a2116; --panel: #3a2e20; --ink: #f3e6c8; --line: #a68448; --accent: #e7c27a; }
+  </style>
+</head>
+<body data-theme="cosmic" data-mode="dark">
+  <header>
+    <div>
+      <h1>Sceneplan model map</h1>
+      <p>How a production, a script import, and a shoot day relate. This page is a map of the app. It is not the app.</p>
+    </div>
+    <div class="controls">
+      <label>Theme <select id="theme">
+        <option value="bento">Bento Grid</option>
+        <option value="cosmic" selected>Cosmic Cyber</option>
+        <option value="swiss">Swiss Architect</option>
+        <option value="aqua">Aqua Web 2.0</option>
+        <option value="brutal">Pop Brutalist</option>
+        <option value="steel">Steel Tactical</option>
+        <option value="parchment">Parchment</option>
+      </select></label>
+      <button id="mode" type="button">Light</button>
+    </div>
+  </header>
+  <main>
+    <section class="grid">
+      <article><h2>What it is</h2><p>A single-user workspace for scenes, shots, storyboards, and one shoot-day plan.</p></article>
+      <article><h2>Who it is for</h2><p>An independent filmmaker planning a short production on their own machine.</p></article>
+      <article><h2>Why it is useful</h2><p>Script text, shot estimates, and the call order stay in one database, with conflicts detected instead of overwritten.</p></article>
+      <article><h2>Structure</h2><p>Production, script version, scene, character, location, shot, storyboard image, shoot day, schedule item.</p></article>
+      <article><h2>Discovery</h2><p>Local only. The URL is printed at startup. There is no public listing.</p></article>
+      <article><h2>Engagement</h2><p>Edit scenes, reorder shots with buttons, upload a JPEG or PNG, assign a scene to one day.</p></article>
+      <article><h2>Conversion</h2><p>The output is a printed shot list or schedule the user takes to set. There is no checkout.</p></article>
+      <article><h2>Money</h2><p>None in this version. No accounts, ads, or paid APIs.</p></article>
+      <article><h2>Launch</h2><p><code>npm ci</code>, <code>npm test</code>, <code>npm run seed</code>, <code>npm start</code>, then open the printed URL.</p></article>
+      <article><h2>After launch</h2><p>Next engineering task: test moving a shot between scenes, then inspect one over-long print card as a PDF.</p></article>
+    </section>
+    <section class="flow" style="margin-top:0.8rem">
+      <h2>Import decision</h2>
+      <ol>
+        <li>Paste or upload UTF-8 text. The parser only recognizes the documented heading subset.</li>
+        <li>If the chosen production already has scenes, stop and offer a new production. Do not merge.</li>
+        <li>Show preamble, warnings, and each detected scene. The user can uncheck a scene. Unchecked text is kept in the preamble.</li>
+        <li>Commit writes the immutable snapshot and the planning rows together, or writes nothing.</li>
+      </ol>
+    </section>
+    <section class="flow" style="margin-top:0.8rem">
+      <h2>Duration and clock</h2>
+      <table>
+        <thead><tr><th>Condition</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Scene override is set</td><td>Use the override, including zero.</td></tr>
+          <tr><td>No override, every shot has minutes</td><td>Use the sum.</td></tr>
+          <tr><td>Any shot minutes are missing</td><td>Scene duration is unknown. Do not use the partial sum.</td></tr>
+          <tr><td>No shots and no override</td><td>Unknown. Not zero.</td></tr>
+          <tr><td>Schedule item duration unknown</td><td>Keep earlier times. Do not calculate later times.</td></tr>
+          <tr><td>Start time skipped or repeated by the zone</td><td>Reject the start.</td></tr>
+          <tr><td>Day would cross an offset change or local midnight</td><td>Mark the day invalid and hide clock labels.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <script>
+    const root = document.body
+    const theme = document.getElementById("theme")
+    const mode = document.getElementById("mode")
+    const saved = JSON.parse(localStorage.getItem("sceneplan-map") || "{}")
+    if (saved.theme) { root.dataset.theme = saved.theme; theme.value = saved.theme }
+    if (saved.mode) root.dataset.mode = saved.mode
+    function paint() {
+      mode.textContent = root.dataset.mode === "dark" ? "Light" : "Dark"
+      localStorage.setItem("sceneplan-map", JSON.stringify({ theme: root.dataset.theme, mode: root.dataset.mode }))
+    }
+    theme.addEventListener("change", () => { root.dataset.theme = theme.value; paint() })
+    mode.addEventListener("click", () => {
+      root.dataset.mode = root.dataset.mode === "dark" ? "light" : "dark"
+      paint()
+    })
+    paint()
+  </script>
+</body>
+</html>

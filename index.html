@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sceneplan preview</title>
+  <style>
+    :root { color-scheme: dark; --bg: #0b0c10; --panel: #1f2833; --ink: #c5c6c7; --strong: #f4f7f8; --line: #45a29e; --cyan: #66fcf1; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Georgia, "Palatino Linotype", serif; background: var(--bg); color: var(--ink); }
+    a { color: var(--cyan); }
+    header, main { width: min(980px, calc(100% - 1.5rem)); margin: 0 auto; }
+    header { padding: 1.4rem 0 0.4rem; }
+    h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 0.2rem 0; color: var(--strong); }
+    h2 { color: var(--strong); font-size: 1.25rem; }
+    .kicker { font-family: ui-monospace, monospace; letter-spacing: 0.08em; text-transform: uppercase; color: var(--line); font-size: 0.75rem; }
+    .banner { border: 1px solid var(--line); background: var(--panel); padding: 0.9rem 1rem; border-radius: 14px; }
+    .grid { display: grid; gap: 1rem; }
+    figure { margin: 0; background: var(--panel); border: 1px solid #334; border-radius: 16px; overflow: hidden; }
+    img { width: 100%; height: auto; display: block; background: #fff; }
+    figcaption { padding: 0.75rem 0.9rem; font-family: "Segoe UI", sans-serif; font-size: 0.95rem; }
+    pre { background: #12151c; color: var(--strong); padding: 0.9rem; overflow: auto; border-radius: 12px; }
+    code { font-family: ui-monospace, monospace; }
+    ul { padding-left: 1.2rem; }
+    footer { padding: 1rem 0 2rem; font-family: "Segoe UI", sans-serif; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <p class="kicker">GitHub Pages preview</p>
+    <h1>Sceneplan</h1>
+    <p>Local preproduction workspace for scenes, shots, storyboards, and shoot days.</p>
+  </header>
+  <main class="grid">
+    <p class="banner"><strong>This page is a static preview.</strong> GitHub Pages cannot run the Sceneplan server. The pictures below are from the local app. Create a production, import a script, plan shots, and print from your own machine with the commands further down.</p>
+    <figure>
+      <img src="images/schedule-mobile.png" alt="Phone-width view of the 2026-04-18 Main unit shoot day, with a location-change warning and a Saved notice.">
+      <figcaption>Shoot day for the fictional seed, Paper Boats on Mercer Street. Times use America/New_York. The location note is a planning reminder, not a travel calculation.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/print-schedule.png" alt="Print layout of the 2026-04-18 schedule from 16:00 to 19:39, with the location warning still visible.">
+      <figcaption>Printable schedule. The browser print command makes the PDF. Sceneplan does not generate a PDF file.</figcaption>
+    </figure>
+    <figure>
+      <img src="images/print-shots.png" alt="Printable shot list for the laundromat scene, with storyboard placeholders and shot durations.">
+      <figcaption>Printable shot list. Shots without a frame say "No storyboard". Shared storyboard images stay with each shot that references them.</figcaption>
+    </figure>
+    <section>
+      <h2>Run the workspace</h2>
+      <p>Node.js 22.13 or newer. No API key.</p>
+      <pre><code>npm ci
+npm test
+npm run seed
+npm start</code></pre>
+      <p>Then open <code>http://127.0.0.1:4173</code>. Loopback is not a login. Anyone who can reach the port can change the data.</p>
+      <p>Source: <a href="https://github.com/mizcausevic-dev/sceneplan/tree/cursor/sceneplan-local-preproduction-bf6f">cursor/sceneplan-local-preproduction-bf6f</a>. Model map: <a href="model.html">how import and durations are decided</a>.</p>
+    </section>
+    <section>
+      <h2>What the seed shows</h2>
+      <ul>
+        <li>Five scenes, four places, three characters, one shoot day.</li>
+        <li>Scene 3 uses a 40 minute override. Scene 5 is unscheduled and has an unknown duration.</li>
+        <li>The day ends at 19:39. A duplicated shot shares one storyboard image.</li>
+      </ul>
+    </section>
+    <footer>Durations are estimates you enter. Deletion is permanent. This preview is not the application.</footer>
+  </main>
+</body>
+</html>
