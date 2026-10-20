@@ -15,7 +15,7 @@ Wall clock recorded from `2026-10-20T18:32:05Z` to `2026-10-20T19:28:17Z`. That 
 - Moving a shot to another scene has an implementation and no automated or browser execution.
 - A storyboard card taller than one printed page was not inspected. `break-inside: avoid` is set, and the seeded print views fit the viewport that was captured.
 - Clean setup was run: the tree was copied to `/tmp/sceneplan-clean` without `node_modules`, `npm ci` installed 5 packages, and `npm test` reported 25 pass, 0 fail.
-- GitHub push and GitHub Pages were not completed. This process has no GitHub credentials. Pages cannot run the Node server. No static stand-in was published.
+- GitHub push and GitHub Pages were not completed. `gh auth status` reported no login, and `GH_TOKEN` is unset. `git push -u origin HEAD` failed because origin does not exist. `gh repo create` stopped at the login prompt. Pages cannot run this Node server, so no static stand-in was published. Local commit: `70b6d39` on `cursor/sceneplan-local-preproduction-bf6f`. The commit author is `mizcausevic-dev@users.noreply.github.com` because this environment had no git identity configured.
 
 ## Next
 
