@@ -1,0 +1,9 @@
+node_modules/
+data/
+.env
+*.log
+*.sqlite
+*.sqlite-*
+coverage/
+.playwright-mcp/
+agent-tools/

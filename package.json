@@ -1,0 +1,23 @@
+{
+  "name": "sceneplan",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first preproduction workspace for independent filmmakers: scenes, shots, storyboards, and shoot-day schedules.",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning src/server.js",
+    "seed": "node --disable-warning=ExperimentalWarning scripts/seed.js",
+    "test": "node --disable-warning=ExperimentalWarning --test --test-concurrency=1 tests/*.test.js",
+    "cleanup-orphans": "node --disable-warning=ExperimentalWarning scripts/cleanup-orphans.js"
+  },
+  "dependencies": {
+    "@hono/node-server": "^2.1.5",
+    "hono": "^4.13.13",
+    "jpeg-js": "^0.4.4",
+    "luxon": "^3.7.2",
+    "pngjs": "^7.0.0"
+  }
+}
