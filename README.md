@@ -24,6 +24,10 @@ npm start
 
 Open `http://127.0.0.1:4173`.
 
+A static preview of screenshots and these commands is published from the `gh-pages` branch: https://mizcausevic-dev.github.io/sceneplan/
+
+That page is not the workspace. GitHub Pages does not run this server.
+
 `npm run seed` inserts the fictional short film Paper Boats on Mercer Street when that name is not already present. It does not download images. Running it twice does not duplicate the film.
 
 Optional environment, see `.env.example`:
