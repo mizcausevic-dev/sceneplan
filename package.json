@@ -14,7 +14,7 @@
     "cleanup-orphans": "node --disable-warning=ExperimentalWarning scripts/cleanup-orphans.js"
   },
   "dependencies": {
-    "@hono/node-server": "^2.1.5",
+    "@hono/node-server": "^2.1.6",
     "hono": "^4.13.13",
     "jpeg-js": "^0.4.4",
     "luxon": "^3.7.2",
